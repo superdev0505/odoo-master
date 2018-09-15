@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_sync_offers_wizard" model="ir.ui.view">
+            <field name="name">Sync Offers</field>
+            <field name="model">sync.offers.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Sync Offers Service">
+                    <group>
+                        <label string="Click on Sync below to start the process..." />
+                    </group>
+                    <footer>
+                        <div>
+                            <button name="sync_data" string="Sync" type="object" class="btn-primary"/>
+                            <button special="cancel" string="Cancel" class="btn-default"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_sync_offers_wizard" model="ir.actions.act_window">
+            <field name="name">Sync Now</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sync.offers.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Sync Now"
+            action="action_view_sync_offers_wizard"
+            id="menu_action_view_sync_offers_wizard"
+            groups="base.group_configuration"
+            parent="base.menu_sale_config"
+                  sequence="40"
+        />
+
+    </data>
+</openerp>

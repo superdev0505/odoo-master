@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="cb_last_payment_report_tree" model="ir.ui.view" >
+            <field name="name">CB Last Payment Report</field>
+            <field name="model">customer.biller.lp.report</field>
+            <field name="arch" type="xml">
+            <tree string="Lead Goal Report" edit="0" create="0">
+                <field name="partner_id"/>
+                <field name="biller_name"/>
+                <field name="biller_customer_id"/>
+                <field name="biller_transaction_id"/>
+                <field name="last_payment_date"/>
+            </tree>
+            </field>
+        </record>
+
+       <record id="cb_last_payment_report_action" model="ir.actions.act_window">
+           <field name="name">CB Last Payment Report</field>
+           <field name="res_model">customer.biller.lp.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">tree</field>
+           <field name="context">{}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="CB Last Payment Report" id="cb_last_payment_report_menu"
+            groups="base.group_sale_manager"
+            parent="base.menu_sale_report" action="cb_last_payment_report_action" sequence="1"/>
+
+    </data>
+</openerp>

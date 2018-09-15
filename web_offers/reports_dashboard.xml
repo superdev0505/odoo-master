@@ -1,0 +1,39 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="subscription_dashboard">
+            <field name="name">Subscriptions Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Subscriptions Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(subscription_new_month_report_action)d" string="New subscriptions by month" creatable="false"/>
+                            <action name="%(earnings_new_subscription_report_action)d" string="Amount earned on new subscriptions by month" creatable="false"/>
+                            <action name="%(incomes_per_product_report_action)d" string="Monthly Incomes per Product" creatable="false"/>
+                            <action name="%(incomes_per_product_report_action2)d" string="Incomes per Product" creatable="false"/>
+                        </column>
+                        <column>
+                            <action name="%(subscription_new_year_report_action)d" string="New subscriptions by year" creatable="false"/>
+                            <action name="%(earnings_new_subscription_report_action2)d" string="Amount earned on new subscriptions per Affiliate" creatable="false"/>
+                            <action name="%(incomes_per_product_report_action3)d" string="Incomes per Week" creatable="false"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="subscription_dashboard_action">
+            <field name="name">My Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="usage">menu</field>
+            <field name="view_id" ref="subscription_dashboard"/>
+        </record>
+
+        <menuitem id="subscription_dashboard_menu" parent="menu_subscription_reports" action="subscription_dashboard_action" sequence="0"/>
+
+
+    </data>
+</openerp>

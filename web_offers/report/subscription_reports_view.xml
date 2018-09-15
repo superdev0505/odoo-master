@@ -1,0 +1,188 @@
+<openerp>
+    <data>
+        <!--  -->
+
+        <record id="subscription_new_month_report_graph" model="ir.ui.view" >
+            <field name="name">New Subscriptions per Month</field>
+            <field name="model">subscription.new.month.report</field>
+            <field name="arch" type="xml">
+                <graph string="New Subscriptions per Week" stacked="False">
+                    <field name="date" type="row" interval="week"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="subscription_new_month_report_action" model="ir.actions.act_window">
+           <field name="name">New Subscriptions per Month</field>
+           <field name="res_model">subscription.new.month.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="view_id" ref="subscription_new_month_report_graph"/>
+           <field name="context">{}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="New Subscriptions per Month" id="subscription_new_month_report_menu"
+            groups="base.group_sale_manager"
+            parent="menu_subscription_reports" action="subscription_new_month_report_action" sequence="1"/>
+
+
+        <!--  -->
+
+        <record id="subscription_new_year_report_graph" model="ir.ui.view" >
+            <field name="name">New Subscriptions per Year</field>
+            <field name="model">subscription.new.month.report</field>
+            <field name="arch" type="xml">
+                <graph string="New Subscriptions per Month" stacked="False">
+                    <field name="date" type="row" interval="year"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="subscription_new_year_report_action" model="ir.actions.act_window">
+           <field name="name">New Subscriptions per Year</field>
+           <field name="res_model">subscription.new.month.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="view_id" ref="subscription_new_year_report_graph"/>
+           <field name="context">{}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="New Subscriptions per Year" id="subscription_new_year_report_menu"
+            groups="base.group_sale_manager"
+            parent="menu_subscription_reports" action="subscription_new_year_report_action" sequence="2"/>
+
+
+        <!--  -->
+
+        <record id="earnings_new_subscription_report_graph" model="ir.ui.view" >
+            <field name="name">Amount earned on new subscriptions</field>
+            <field name="model">earnings.new.subscription.report</field>
+            <field name="arch" type="xml">
+                <graph string="Amount earned on new subscriptions" stacked="False">
+                    <field name="date" type="row" interval="week"/>
+                    <field name="recurring_total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="earnings_new_subscription_report_action" model="ir.actions.act_window">
+           <field name="name">Amount earned on new subscriptions</field>
+           <field name="res_model">earnings.new.subscription.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="view_id" ref="earnings_new_subscription_report_graph"/>
+           <field name="context">{'graph_mode': 'line'}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="Amount earned on new subscriptions" id="earnings_new_subscription_report_menu"
+            groups="base.group_sale_manager"
+            parent="menu_subscription_reports" action="earnings_new_subscription_report_action" sequence="3"/>
+
+        <!--  -->
+
+        <record id="earnings_new_subscription_report_graph2" model="ir.ui.view" >
+            <field name="name">Amount earned on new subscriptions per Affiliate</field>
+            <field name="model">earnings.new.subscription.report</field>
+            <field name="arch" type="xml">
+                <graph string="Amount earned on new subscriptions per Affiliate" stacked="False">
+                    <field name="date" type="row" interval="week"/>
+                    <field name="team_id" type="col"/>
+                    <field name="recurring_total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="earnings_new_subscription_report_action2" model="ir.actions.act_window">
+           <field name="name">Amount earned on new subscriptions per Affiliate</field>
+           <field name="res_model">earnings.new.subscription.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="view_id" ref="earnings_new_subscription_report_graph2"/>
+           <field name="context">{'graph_mode': 'line'}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="Amount earned on new subscriptions per Affiliate" id="earnings_new_subscription_report_menu2"
+            groups="base.group_sale_manager"
+            parent="menu_subscription_reports" action="earnings_new_subscription_report_action2" sequence="4"/>
+
+        <!--  -->
+
+        <record id="incomes_per_product_report_graph" model="ir.ui.view" >
+            <field name="name">Incomes per Product Monthly</field>
+            <field name="model">incomes.per.product.report</field>
+            <field name="arch" type="xml">
+                <graph string="Incomes per Product Monthly" stacked="False">
+                    <field name="date_invoice" type="row" interval="week"/>
+                    <field name="product_id" type="col"/>
+                    <field name="income" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="incomes_per_product_report_action" model="ir.actions.act_window">
+           <field name="name">Monthly Incomes per Product</field>
+           <field name="res_model">incomes.per.product.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="view_id" ref="incomes_per_product_report_graph"/>
+           <field name="context">{'graph_mode': 'bar'}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="Incomes per Product Monthly" id="incomes_per_product_report_menu"
+            groups="base.group_sale_manager"
+            parent="menu_subscription_reports" action="incomes_per_product_report_action" sequence="5"/>
+
+
+        <record id="incomes_per_product_report_graph2" model="ir.ui.view" >
+            <field name="name">Incomes per Product</field>
+            <field name="model">incomes.per.product.report</field>
+            <field name="arch" type="xml">
+                <graph string="Incomes per Product" stacked="False">
+                    <field name="product_id" type="row"/>
+                    <field name="income" type="measure"/>
+                </graph>
+            </field>
+        </record>|
+
+       <record id="incomes_per_product_report_action2" model="ir.actions.act_window">
+           <field name="name">Incomes per Product</field>
+           <field name="res_model">incomes.per.product.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="view_id" ref="incomes_per_product_report_graph2"/>
+           <field name="context">{'graph_mode': 'pie'}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="Incomes per Product" id="incomes_per_product_report_menu2"
+            groups="base.group_sale_manager"
+            parent="menu_subscription_reports" action="incomes_per_product_report_action2" sequence="6"/>
+
+
+        <record id="incomes_per_product_report_graph3" model="ir.ui.view" >
+            <field name="name">Incomes per Week</field>
+            <field name="model">incomes.per.product.report</field>
+            <field name="arch" type="xml">
+                <graph string="Incomes per Week" stacked="False">
+                    <field name="date_invoice" type="row" interval="week"/>
+                    <field name="income" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="incomes_per_product_report_action3" model="ir.actions.act_window">
+           <field name="name">Incomes per Week</field>
+           <field name="res_model">incomes.per.product.report</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">graph</field>
+           <field name="view_id" ref="incomes_per_product_report_graph3"/>
+           <field name="context">{'graph_mode': 'line'}</field>
+           <field name="domain">[]</field>
+       </record>
+       <menuitem name="Incomes per Week" id="incomes_per_product_report_menu3"
+            groups="base.group_sale_manager"
+            parent="menu_subscription_reports" action="incomes_per_product_report_action3" sequence="7"/>
+
+
+
+    </data>
+</openerp>

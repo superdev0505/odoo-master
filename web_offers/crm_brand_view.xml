@@ -1,0 +1,38 @@
+<openerp>
+    <data>
+
+        <!-- Case Site Tree View -->
+        <record id="crm_brand_view_tree" model="ir.ui.view">
+            <field name="name">crm.brand.tree</field>
+            <field name="model">crm.brand</field>
+            <field name="arch" type="xml">
+                <tree string="Brands" editable="bottom">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="sales_brand_config_action" model="ir.actions.act_window">
+            <field name="name">Brands</field>
+            <field name="res_model">crm.brand</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to define a new sales brand.
+                </p><p>
+                    Use brands.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Brands"
+            id="sales_brands_config"
+            groups="base.group_configuration"
+            parent="base.menu_sale_config"
+            action="sales_brand_config_action"/>
+    </data>
+</openerp>

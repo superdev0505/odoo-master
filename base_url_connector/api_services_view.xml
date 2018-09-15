@@ -1,0 +1,55 @@
+<openerp>
+    <data>
+        <record id="web_api_service_tree" model="ir.ui.view">
+			<field name="model">web.api.service</field>
+            <field name="arch" type="xml">
+                <tree string="API Web Service">
+                	<field name="name"/>
+                    <field name="api_url"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="web_api_service_form" model="ir.ui.view">
+			<field name="model">web.api.service</field>
+            <field name="arch" type="xml">
+                <form string="API Web Service">
+                    <group>
+                        <field name="name"/>
+                        <field name="service_internal_name"/>
+                        <field name="active"/>
+                        <field name="api_url"/>
+                        <field name="headers">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="value"/>
+                            </tree>
+                        </field>
+                        <field name="parameters">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="value"/>
+                            </tree>
+                        </field>
+
+                        <button string="Test Connection" type="object" name="call_api"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+		<record id="web_api_service_action" model="ir.actions.act_window">
+            <field name="name">Web Services</field>
+            <field name="res_model">web.api.service</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="web_api_service_tree"/>
+        </record>
+
+        <menuitem id="menu_web_api_service_action" action="web_api_service_action" parent="menu_external_systems"/>
+    </data>
+</openerp>

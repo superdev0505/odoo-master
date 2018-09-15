@@ -1,0 +1,18 @@
+<openerp>
+    <data noupdate="1">
+        <record id="met_art_api_service" model="web.api.service">
+            <field name="name">MetArt</field>
+            <field name="service_internal_name">metart</field>
+            <field name="active">True</field>
+            <field name="api_url">https://api.met-art.com/</field>
+        </record>
+
+        <record id="met_art_api_key" model="web.api.service.header">
+            <field name="service_id" ref="tovia_metart.met_art_api_service"/>
+            <field name="name">X-API-Key</field>
+            <field name="description">API Key</field>
+            <field name="value">82974FD88D95DE44659887420B5F1830</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,70 @@
+<openerp>
+    <data>
+        <record id="web_api_affiliate_service_tree" model="ir.ui.view">
+			<field name="model">web.api.affiliate.service</field>
+            <field name="arch" type="xml">
+                <tree string="API Affiliate Service">
+                	<field name="name"/>
+                    <field name="service_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="web_api_affiliate_service_form" model="ir.ui.view">
+			<field name="model">web.api.affiliate.service</field>
+            <field name="arch" type="xml">
+                <form string="API Affiliate Service">
+                    <header>
+                        <button string="Sync Affiliates" type="object" name="sync_affiliates"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="service_id"/>
+                        </group>
+                        <group>
+                            <field name="min_refresh_interval"/>
+                            <field name="last_refresh" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="affiliates_path"/>
+                            <field name="affiliates_external_id"/>
+                            <field name="affiliates_name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="parameters">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="value"/>
+                                </tree>
+                            </field>
+
+                            <field name="affiliates">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="external_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+		<record id="web_api_affiliate_service_action" model="ir.actions.act_window">
+            <field name="name">Web Affiliates</field>
+            <field name="res_model">web.api.affiliate.service</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'no_refresh': True}</field>
+            <field name="view_id" ref="web_api_affiliate_service_tree"/>
+        </record>
+
+        <menuitem id="menu_web_api_affiliate_service_action" action="web_api_affiliate_service_action" parent="base_url_connector.menu_external_systems"/>
+    </data>
+</openerp>

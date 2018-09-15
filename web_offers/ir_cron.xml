@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="ir_cron_sync_offers" model="ir.cron">
+            <field name="name">Sync Offers</field>
+            <field name="interval_type">minutes</field>
+            <field name="interval_number">30</field>
+            <field name="numbercall">-1</field>
+            <field name="model">web.api.offer.service</field>
+            <field name="function">sync_offers</field>
+            <field name="args">(None,)</field>
+        </record>
+
+
+        <record id="ir_cron_sync_affiliates" model="ir.cron">
+            <field name="name">Sync Affiliates</field>
+            <field name="interval_type">minutes</field>
+            <field name="interval_number">30</field>
+            <field name="numbercall">-1</field>
+            <field name="model">web.api.affiliate.service</field>
+            <field name="function">sync_affiliates</field>
+            <field name="args">(None,)</field>
+        </record>
+    </data>
+</openerp>

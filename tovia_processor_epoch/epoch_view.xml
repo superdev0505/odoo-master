@@ -1,0 +1,27 @@
+<openerp>
+    <data>
+        <record id="epoch_tree" model="ir.ui.view">
+			<field name="model">epoch.data</field>
+            <field name="arch" type="xml">
+                <tree string="Epoch" editable="bottom">
+                	<field name="site_name"/>
+                    <field name="description"/>
+                    <field name="price"/>
+                    <field name="trial_price"/>
+                    <field name="pi_code"/>
+                </tree>
+            </field>
+        </record>
+
+		<record id="epoch_action" model="ir.actions.act_window">
+            <field name="name">Epoch</field>
+            <field name="res_model">epoch.data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="epoch_tree"/>
+        </record>
+
+        <menuitem id="menu_epoch_action" action="epoch_action" parent="tovia_metart.menu_payment_processors"/>
+
+    </data>
+</openerp>

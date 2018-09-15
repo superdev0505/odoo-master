@@ -1,0 +1,5 @@
+<openerp>
+    <data>
+        <menuitem id="menu_external_systems" name="External Systems" parent="base.menu_custom" sequence="0"/>
+    </data>
+</openerp>

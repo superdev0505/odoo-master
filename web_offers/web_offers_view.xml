@@ -1,0 +1,84 @@
+<openerp>
+    <data>
+        <record id="web_api_offer_service_tree" model="ir.ui.view">
+			<field name="model">web.api.offer.service</field>
+            <field name="arch" type="xml">
+                <tree string="API Offer Service">
+                	<field name="name"/>
+                    <field name="service_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="web_api_offer_service_form" model="ir.ui.view">
+			<field name="model">web.api.offer.service</field>
+            <field name="arch" type="xml">
+                <form string="API Offer Service">
+                    <header>
+                        <button string="Sync Offers" type="object" name="sync_offers"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="service_id"/>
+                        </group>
+                        <group>
+                            <field name="min_refresh_interval"/>
+                            <field name="last_refresh" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="offers_path"/>
+                            <field name="offers_external_id"/>
+                            <field name="offers_name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="parameters">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="value"/>
+                                </tree>
+                            </field>
+
+                            <field name="request_data">
+                                <tree editable="bottom">
+                                    <field name="name" required="1"/>
+                                    <field name="description"/>
+                                    <field name="field_name" required="1"/>
+                                </tree>
+                            </field>
+
+                            <field name="offers">
+                                <tree edit="0">
+                                    <field name="name"/>
+                                    <field name="external_id"/>
+                                    <field name="revenue_type"/>
+                                    <field name="max_payout"/>
+                                    <field name="max_percent_payout"/>
+                                    <field name="payout_type"/>
+                                    <field name="default_payout"/>
+                                    <field name="percent_payout"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+		<record id="web_api_offer_service_action" model="ir.actions.act_window">
+            <field name="name">Web Offers</field>
+            <field name="res_model">web.api.offer.service</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'no_refresh': True}</field>
+            <field name="view_id" ref="web_api_offer_service_tree"/>
+        </record>
+
+        <menuitem id="menu_web_api_offer_service_action" action="web_api_offer_service_action" parent="base_url_connector.menu_external_systems"/>
+    </data>
+</openerp>

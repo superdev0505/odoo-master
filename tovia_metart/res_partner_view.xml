@@ -1,0 +1,19 @@
+<openerp>
+    <data>
+        <record id="view_partner_metart_form" model="ir.ui.view">
+            <field name="name">res.partner.metart.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="MetArt">
+                        <group>
+                            <field name="ma_username"/>
+                            <field name="ma_password"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

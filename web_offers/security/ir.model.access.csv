@@ -1,0 +1,13 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_web_api_offer_service_user","web_api_offer_service group_user","model_web_api_offer_service",,1,0,0,0
+"access_web_api_offer_service_system","web_api_offer_service group_system","model_web_api_offer_service","base.group_system",1,1,1,1
+"access_web_api_offer_service_parameter_user","web_api_offer_service_parameter group_user","model_web_api_offer_service_parameter",,1,0,0,0
+"access_web_api_offer_service_parameter_system","web_api_offer_service_parameter group_system","model_web_api_offer_service_parameter","base.group_system",1,1,1,1
+"access_web_offers_user","web_offers group_user","model_web_offers",,1,0,0,0
+"access_web_offers_system","web_offers group_system","model_web_offers","base.group_system",1,1,1,1
+access_crm_brand,crm.brand,model_crm_brand,base.group_user,1,0,0,0
+access_crm_brand_user,crm.brand.user,model_crm_brand,base.group_sale_salesman,1,0,0,0
+access_crm_brand_manager,crm.brand.manager,model_crm_brand,base.group_sale_manager,1,1,1,1
+access_crm_site,crm.site,model_crm_site,base.group_user,1,0,0,0
+access_crm_site_user,crm.site.user,model_crm_site,base.group_sale_salesman,1,0,0,0
+access_crm_site_manager,crm.site.manager,model_crm_site,base.group_sale_manager,1,1,1,1

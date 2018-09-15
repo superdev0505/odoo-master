@@ -1,0 +1,10 @@
+<openerp>
+    <data>
+        <menuitem name="Payment Processors"
+            id="menu_payment_processors" parent="base.menu_base_partner"
+            sequence="7"/>
+
+
+
+    </data>
+</openerp>

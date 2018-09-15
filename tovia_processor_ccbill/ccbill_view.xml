@@ -1,0 +1,31 @@
+<openerp>
+    <data>
+        <record id="cc_bill_tree" model="ir.ui.view">
+			<field name="model">ccbill.data</field>
+            <field name="arch" type="xml">
+                <tree string="CCbill" editable="bottom">
+                	<field name="subaccount"/>
+                    <field name="subaccount_url"/>
+                    <field name="site_name"/>
+                    <field name="site_active"/>
+                    <field name="description"/>
+                    <field name="copy"/>
+                    <field name="main"/>
+                    <field name="split_to_us"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+
+		<record id="cc_bill_action" model="ir.actions.act_window">
+            <field name="name">CCbill</field>
+            <field name="res_model">ccbill.data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="cc_bill_tree"/>
+        </record>
+
+        <menuitem id="menu_cc_bill_action" action="cc_bill_action" parent="tovia_metart.menu_payment_processors"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,37 @@
+<openerp>
+    <data>
+
+        <record id="view_offer_order_form" model="ir.ui.view">
+            <field name="name">sale.offer.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="offer_id" options="{'no_create': True}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Inherited Analytic Account form for contracts -->
+    <record id="sale_offer_subscription_view_form" model="ir.ui.view">
+        <field name="name">sale.offer.subscription.form.view</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="sale_contract.sale_subscription_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Subscription Information">
+                    <group>
+                        <field name="team_id" options="{'no_create': True}"/>
+                        <field name="offer_id" options="{'no_create': True}"/>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='template_id']" position="replace">
+                <field name="template_id" attrs="{'invisible': [('type','=','template')]}" on_change="on_change_template(template_id)" context="{'default_type': 'template'}" domain="[('type', '=', 'template'), ('state', '=', 'open')]"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    </data>
+</openerp>

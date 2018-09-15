@@ -1,0 +1,54 @@
+<openerp>
+    <data>
+
+        <record id="crm_offers_team_view_form" model="ir.ui.view">
+            <field name="name">crm.offers.team.form</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="before">
+                    <field name="type"/>
+                    <field name="pricelist_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Case Teams Tree View -->
+        <record id="crm_offers_team_view_tree" model="ir.ui.view">
+            <field name="name">crm.offers.team.tree</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="sales_team.crm_team_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="before">
+                    <field name="type"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="sales_team.sales_team_config_action" model="ir.actions.act_window">
+            <field name="name">Affiliates</field>
+            <field name="res_model">crm.team</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="view_id" ref="sales_team.crm_team_salesteams_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to define new affiliates
+                </p><p>
+                    Use sales team to organize your different salespersons or
+                    departments into separate teams. Each team will work in
+                    its own list of opportunities.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Affiliates"
+            id="base.sales_team_config"
+            groups="base.group_configuration"
+            parent="base.menu_sale_config"
+            action="sales_team.sales_team_config_action"/>
+
+    </data>
+</openerp>

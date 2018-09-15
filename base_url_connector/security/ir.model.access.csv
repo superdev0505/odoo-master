@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_web_api_service_user","web_api_service group_user","model_web_api_service",,1,0,0,0
+"access_web_api_service_system","web_api_service group_system","model_web_api_service","base.group_system",1,1,1,1
+"access_web_api_service_parameter_user","web_api_service_parameter group_user","model_web_api_service_parameter",,1,0,0,0
+"access_web_api_service_parameter_system","web_api_service_parameter group_system","model_web_api_service_parameter","base.group_system",1,1,1,1

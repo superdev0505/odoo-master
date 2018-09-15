@@ -1,0 +1,6 @@
+<openerp>
+    <data>
+        <menuitem id="menu_subscription_reports" name="Reports" sequence="0" parent="sale_contract.menu_sale_subscription_root"/>
+
+    </data>
+</openerp>
